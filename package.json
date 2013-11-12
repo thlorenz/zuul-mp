@@ -4,7 +4,7 @@
   "description": "Runs you mocha tests with zulu and phantomjs locally or on a build server.",
   "main": "index.js",
   "bin": {
-    "zuulmp": "bin/zuulmp.js"
+    "zuul-mp": "bin/zuulmp.js"
   },
   "scripts": {
     "test": "set -e; for t in test/*.js; do node $t; done"
