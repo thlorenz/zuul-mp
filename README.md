@@ -1,11 +1,6 @@
-# zuul-mp
-[![build status](https://secure.travis-ci.org/thlorenz/zuul-mp.png)](http://travis-ci.org/thlorenz/zuul-mp)
+# zuul-mp [![build status](https://secure.travis-ci.org/thlorenz/zuul-mp.png)](http://travis-ci.org/thlorenz/zuul-mp)
 
 Runs you mocha tests with zulu and phantomjs locally or on a build server.
-
-```js
-// TODO
-```
 
 ## Status
 
