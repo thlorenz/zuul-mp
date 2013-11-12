@@ -7,7 +7,7 @@
     "zuulmp": "bin/zuulmp.js"
   },
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "set -e; for t in test/*.js; do node $t; done"
   },
   "repository": {
     "type": "git",

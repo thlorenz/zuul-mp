@@ -55,13 +55,13 @@ var go = module.exports = function (args, cwd, cb) {
 
     zuul = run(bins.zuul, args, cwd, function (err, code) {
       if (err) {
-        if (mp) process.kill(mp);
+        if (mp) mp.kill();
         return cb(err, code);
       }
     });
 
     mp = run(bins['mocha-phantomjs'], [route].concat(args), cwd, function (err, code) {
-      process.kill(zuul.pid);
+      zuul.kill();
       cb(err, code);
     });
   });    
