@@ -42,6 +42,15 @@ function run(bin, args, cwd, cb) {
   return prog;
 }
 
+/**
+ * Starts up a zuul server and runs mocha-phantomjs against it.
+ *
+ * @name zuulmp
+ * @function
+ * @param args {Array[String]} arguments passed to zuul and phantomjs
+ * @param cwd {String} working directory to be used for zuul and mocha-phantomjs
+ * @param cb {Function} called back with eventual error and the exit code (0 if all went good)
+ */
 var go = module.exports = function (args, cwd, cb) {
   var port = getZuluPort(args);
   if (!port) return cb(new Error('Please provide a port for the zulu server, i.e. --local 3000'), -1);
