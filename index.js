@@ -30,10 +30,8 @@ function run(bin, args, env, cb) {
   var prog = spawn(
       bin
     , args
-    , { env: env }
+    , { stdio: 'inherit', env: env }
   )
-  prog.stdout.pipe(process.stdout);
-  prog.stderr.pipe(process.stderr);
 
   prog
     .on('close', function (code) {
@@ -49,22 +47,23 @@ var go = module.exports = function (argv, env, cb) {
   var port = getZuluPort(args);
   if (!port) return cb(new Error('Please provide a port for the zulu server, i.e. --local 3000'), -1);
 
+  var route = format('http://localhost:%d/__zuul', port);
+
   resolveBins([ 'zuul', 'mocha-phantomjs'], function (err, bins) {
-    var zuul;
+    var zuul, mp;
 
     if (err) return cb(err);
 
     zuul = run(bins.zuul, args, env, function (err, code) {
-      if (err) return cb(err, code);
+      if (err) {
+        if (mp) process.kill(mp);
+        return cb(err, code);
+      }
     });
 
-    zuul.stdout.once('data', function (d) {
-      var route = format('http://localhost:%d/__zuul', port);
-
-      var mp = run(bins['mocha-phantomjs'], [ route ], env, function (err, code) {
-        process.kill(zuul);
-        cb(err, code);
-      });
+    mp = run(bins['mocha-phantomjs'], [ route ], env, function (err, code) {
+      process.kill(zuul);
+      cb(err, code);
     });
   });    
 };
