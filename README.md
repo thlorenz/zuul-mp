@@ -1,6 +1,6 @@
 # zuul-mp [![build status](https://secure.travis-ci.org/thlorenz/zuul-mp.png)](http://travis-ci.org/thlorenz/zuul-mp)
 
-Runs you mocha tests with zulu and phantomjs locally or on a build server.
+Runs you mocha tests with zuul and phantomjs locally or on a build server.
 
 ![zuul-mp](https://github.com/thlorenz/zuul-mp/raw/master/assets/zuul-mp.gif)
 
