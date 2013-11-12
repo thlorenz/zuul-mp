@@ -26,24 +26,23 @@ function resolveBins(names, cb) {
   )
 }
 
-function run(bin, args, env, cb) {
+function run(bin, args, cwd, cb) {
   var prog = spawn(
       bin
     , args
-    , { stdio: 'inherit', env: env }
+    , { stdio: 'inherit', cwd: cwd }
   )
 
   prog
     .on('close', function (code) {
       if (code !== 0) return cb(new Error('prog ' + args.join(' ') + ' returned with code ' + code), code);
-      cb();
+      cb(null, code);
     })
 
   return prog;
 }
 
-var go = module.exports = function (argv, env, cb) {
-  var args = argv.slice(2);
+var go = module.exports = function (args, cwd, cb) {
   var port = getZuluPort(args);
   if (!port) return cb(new Error('Please provide a port for the zulu server, i.e. --local 3000'), -1);
 
@@ -54,25 +53,16 @@ var go = module.exports = function (argv, env, cb) {
 
     if (err) return cb(err);
 
-    zuul = run(bins.zuul, args, env, function (err, code) {
+    zuul = run(bins.zuul, args, cwd, function (err, code) {
       if (err) {
         if (mp) process.kill(mp);
         return cb(err, code);
       }
     });
 
-    mp = run(bins['mocha-phantomjs'], [route].concat(args), env, function (err, code) {
-      process.kill(zuul);
+    mp = run(bins['mocha-phantomjs'], [route].concat(args), cwd, function (err, code) {
+      process.kill(zuul.pid);
       cb(err, code);
     });
   });    
 };
-
-
-// Test
-if (!module.parent && typeof window === 'undefined') {
-  go(process.argv, process.env, function (err, code) {
-    if (err) console.error(err);
-    process.exit(code);
-  });
-}
