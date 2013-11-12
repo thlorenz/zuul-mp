@@ -61,7 +61,7 @@ var go = module.exports = function (argv, env, cb) {
       }
     });
 
-    mp = run(bins['mocha-phantomjs'], [ route ], env, function (err, code) {
+    mp = run(bins['mocha-phantomjs'], [route].concat(args), env, function (err, code) {
       process.kill(zuul);
       cb(err, code);
     });
