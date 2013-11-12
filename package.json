@@ -1,10 +1,10 @@
 {
   "name": "zuul-mp",
   "version": "0.1.0",
-  "description": "Runs you mocha tests with zuul and phantomjs locally or on a build server.",
+  "description": "Runs your mocha tests with zuul and phantomjs locally or on a build server.",
   "main": "index.js",
   "bin": {
-    "zuul-mp": "bin/zuulmp.js"
+    "zuul-mp": "bin/zuul-mp.js"
   },
   "scripts": {
     "test": "set -e; for t in test/*.js; do node $t; done"
