@@ -7,7 +7,7 @@
     "zuul-mp": "bin/zuul-mp.js"
   },
   "scripts": {
-    "test": "set -e; for t in test/*.js; do node $t; done"
+    "test": "tap test/*.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   "devDependencies": {
     "tap": "~0.4.3"
   },
-  "keywords": [],
+  "keywords": [ "zuul", "phantom", "phantomjs", "mocha", "test", "local", "travis" ],
   "author": {
     "name": "Thorsten Lorenz",
     "email": "thlorenz@gmx.de",
