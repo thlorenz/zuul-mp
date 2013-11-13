@@ -1,6 +1,6 @@
 {
   "name": "zuul-mp",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Runs your mocha tests with zuul and phantomjs locally or on a build server.",
   "main": "index.js",
   "bin": {
@@ -24,7 +24,15 @@
   "devDependencies": {
     "tap": "~0.4.3"
   },
-  "keywords": [ "zuul", "phantom", "phantomjs", "mocha", "test", "local", "travis" ],
+  "keywords": [
+    "zuul",
+    "phantom",
+    "phantomjs",
+    "mocha",
+    "test",
+    "local",
+    "travis"
+  ],
   "author": {
     "name": "Thorsten Lorenz",
     "email": "thlorenz@gmx.de",
