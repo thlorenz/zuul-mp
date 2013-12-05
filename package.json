@@ -19,7 +19,8 @@
     "mocha": "~1.14.0",
     "zuul": "~1.0.2",
     "asyncreduce": "~0.1.4",
-    "resolve-bin": "~0.1.0"
+    "resolve-bin": "~0.1.0",
+    "phantomjs": "~1.9.2-4"
   },
   "devDependencies": {
     "tap": "~0.4.3"
