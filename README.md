@@ -14,13 +14,16 @@ Invoke `zuul-mp` with the same arguments you would pass to [zuul](https://github
 
 You can also include arguments for [mocha-phantomjs](https://github.com/metaskills/mocha-phantomjs#usage). 
 
-#### Example
+#### Examples
 
 ```sh
-zuul-mp --reporter list -- test.js
+zuul-mp test.js
+
+# Override reporter
+zuul-mp test.js --reporter list
 
 # Override default port
-zuul-mp --local 3100 --reporter list -- test.js
+zuul-mp test.js --local 3100
 ```
 
 Here `--reporter list` is picked up by mocha-phantomjs and all other arguments by zuul.
