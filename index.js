@@ -4,10 +4,17 @@ var asyncreduce = require('asyncreduce')
   , resolveBin = require('resolve-bin')
   , spawn = require('child_process').spawn
   , format = require('util').format
+  , PORT = 5557
 
 function getZuluPort(args) {
   var local = args.indexOf('--local');
-  if (!~local) return undefined;
+
+  // pick default port and insert it into zuul args if none was provided 
+  if (!~local) {
+    args.unshift(PORT);
+    args.unshift('--local');
+    return PORT;
+  }
   return args[local + 1];
 }
 

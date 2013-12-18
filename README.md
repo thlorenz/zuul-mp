@@ -16,6 +16,9 @@ You can also include arguments for [mocha-phantomjs](https://github.com/metaskil
 
 #### Example
 
+    zuul-mp --reporter list -- test.js
+
+    # Override default port
     zuul-mp --local 3100 --reporter list -- test.js
 
 Here `--reporter list` is picked up by mocha-phantomjs and all other arguments by zuul.
