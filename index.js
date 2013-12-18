@@ -56,9 +56,9 @@ function run(bin, args, cwd, cb) {
  *
  * @name zuulmp
  * @function
- * @param args {Array[String]} arguments passed to zuul and phantomjs
- * @param cwd {String} working directory to be used for zuul and mocha-phantomjs
- * @param cb {Function} called back with eventual error and the exit code (0 if all went good)
+ * @param {Array.<String>} args arguments passed to zuul and phantomjs
+ * @param {String} cwd working directory to be used for zuul and mocha-phantomjs
+ * @param {Function(Error, Number)} cb called back with eventual error and the exit code (0 if all went good)
  */
 var go = module.exports = function (args, cwd, cb) {
   var port = getZuluPort(args);
