@@ -24,7 +24,7 @@
     "asyncreduce": "~0.1.4",
     "resolve-bin": "~0.1.0",
     "phantomjs": "~1.9.2-4",
-    "zuul": "~1.0.5"
+    "zuul": "~1.0.10"
   },
   "devDependencies": {
     "tap": "~0.4.3",
