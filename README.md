@@ -1,5 +1,12 @@
 # zuul-mp [![build status](https://secure.travis-ci.org/thlorenz/zuul-mp.png)](http://travis-ci.org/thlorenz/zuul-mp)
 
+
+## DEPRECATED
+
+[zuul](https://github.com/defunctzombie/zuul) added a `--phantom` flag which provides the functionality that zuul-mp is meant to provide.
+
+Please use `zuul --phantom` instead.
+
 Runs your mocha tests with zuul and phantomjs locally or on a build server.
 
 ![zuul-mp](https://github.com/thlorenz/zuul-mp/raw/master/assets/zuul-mp.gif)
